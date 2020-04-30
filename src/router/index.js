@@ -11,6 +11,7 @@ import componentsRouter from './modules/components'
 import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
+import systemRouter from './modules/system'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -129,6 +130,7 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
+  systemRouter,
   {
     path: '/permission',
     component: Layout,
@@ -388,7 +390,7 @@ export const asyncRoutes = [
 ]
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
+  mode: 'history', // 需要后端服务支持 https://router.vuejs.org/zh/guide/essentials/history-mode.html
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })
